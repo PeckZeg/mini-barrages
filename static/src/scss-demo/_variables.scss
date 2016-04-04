@@ -1,0 +1,203 @@
+//
+//  Variables
+//  --------------------------------------------------
+
+@import '../../assets/scss/variables/color';
+@import '../../assets/scss/variables/device';
+@import '../../assets/scss/variables/screen';
+@import '../../assets/scss/variables/transition';
+@import '../../assets/scss/variables/typography';
+@import '../../assets/scss/variables/wado-logo';
+
+$folder-images:                 '/static/images' !default;
+$body-width:                    1024px;
+
+$main-section-title: (
+    bg-src:                     '#{$folder-images}/title-bg.png',
+    bg-src-width:               1306px,
+    bg-src-height:              160px,
+    bg-color:                   #00d78c,
+    width:                      456px,
+    height:                     120px,
+    color:                      $white,
+    small: (
+        color:                  #00d88a,
+    )
+);
+
+$main-nav: (
+    z-index:                    65536,
+    height:                     80px,
+    body: (
+        width:                  $body-width,
+        text-align:             right,
+    ),
+    items: (
+        margin-right:           2.75em,
+        font-size:              $font-size-medium,
+        color:                  #961432,
+    )
+);
+
+$main-banner: (
+    height:                     910px,
+    bg-img:                     '#{$folder-images}/banner.png',
+    bg-color:                   #ff6161,
+    anchor: (
+        size:                   50px,
+        ios: (
+            top:                443px,
+            right:              148px,
+        ),
+        android: (
+            top:                445px,
+            right:              76px,
+        )
+    )
+);
+
+$main-features: (
+    margin-bottom:              1.75em,
+    title: (
+        margin-bottom:          3.25em,
+        width:                  456px,
+        height:                 120px,
+        bg-color:               #00d78c,
+        bg-size:                auto 100%,
+        bg: (
+            src:                '#{$folder-images}/new-features-bg.png',
+            width:              1306px,
+            height:             160px,
+        ),
+        color:                  $white,
+    ),
+    body: (
+        width:                  $body-width,
+    ),
+    row: (
+        margin-x:               0.75em,
+        padding-x:              0.75em,
+        width:                  percentage(1 / 3),
+    ),
+    feature: (
+        title: (
+            font-size:          $font-size-h3,
+            line-height:        1.5,
+            color:              #ff6161,
+        ),
+        para: (
+            font-size:          $font-size-medium,
+            color:              #00d88a,
+        ),
+    )
+);
+
+$main-team: (
+    bg: (
+        src:                    '#{$folder-images}/team-bg.png',
+        width:                  1302px,
+        height:                 967px,
+        bg-size:                auto 100%,
+    ),
+    title: (
+        bg: (
+            src:                '#{$folder-images}/team-bg.png',
+            width:              1302px,
+            height:             967px,
+        ),
+    ),
+    img-size:                   470px,
+    ph: (
+        bg-color:               #ddd,
+        color:                  $white,
+        ins: (
+            content:            '皂片显示区',
+            font-size:          $font-size-h2,
+        ),
+        para: (
+            content:            '职位和出身'
+        )
+    ),
+    dialog: (
+        bg-src:                 '#{$folder-images}/dialog2-bg.png',
+        width:                  280px,
+        height:                 220px
+    ),
+    character: (
+        bg-color:               #ff6161,
+    )
+);
+
+$main-join: (
+    margin-bottom:              1.75em,
+    img-size:                   330px,
+    title: (
+        bg-src:                 '#{$folder-images}/join-bg.png',
+        width:                  1292px,
+        height:                 161px,
+    ),
+    body: (
+        margin-top:             2.5em,
+        width:                  $body-width,
+    ),
+    job: (
+        img-size:               350px,
+        intro: (
+            padding:            0 1.25em,
+            font-size:          $font-size-medium,
+            color:              #7d7d7d,
+            title: (
+                margin-bottom:  0.25em,
+                font-size:      $font-size-h3,
+                color:          #ff6161,
+            ),
+            subtitle: (
+                margin-bottom:  0.75em
+            ),
+            list: (
+                base-margin:    1.25em
+            )
+        )
+    ),
+    footer: (
+        width:                  $body-width * 0.75,
+        avatar-size:            128px,
+        dialog: (
+            bg-src:             '#{$folder-images}/dialog-bg.png',
+            width:              50px,
+            height:             104px,
+            font-size:          $font-size-h4 * 1.25,
+            color:              #ff6161
+        )
+    )
+);
+
+$main-footer: (
+    padding:                    1.25em,
+    width:                      $body-width,
+    bg-color:                   #00d78c,
+    font-size:                  $font-size-medium,
+    color:                      $white,
+    list: (
+        split:                  '|',
+        padding-x:              0.75em,
+    )
+);
+
+$mobile-download: (
+    width:                      80%,
+    bg: (
+        src:                    '#{$folder-images}/m-btn.png',
+        width:                  600px,
+        height:                 122px,
+    )
+);
+
+$mobile-header: (
+    width:                      100%,
+    bg: (
+        src:                    '#{$folder-images}/m-bg.png',
+        width:                  711px,
+        height:                 747px,
+    )
+);

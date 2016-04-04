@@ -1,0 +1,29 @@
+---
+  concat:
+    options:
+      banner: ";(function($, _, moment) {\n"
+      footer: "\n})(jQuery, _, moment);"
+    src:
+      - src/js-mini-barrages/class/**/*.js
+      - src/js-mini-barrages/component/**/*.js
+      - src/js-mini-barrages/element/**/*.js
+      - src/js-mini-barrages/util/**/*.js
+      - src/js-mini-barrages/app.js
+    dest: dest/js/mini-barrages-es6.js
+
+  babel:
+    options:
+      presets:
+        - babel-preset-es2015
+    files:
+      dest/js/mini-barrages.js: dest/js/mini-barrages-es6.js
+
+  uglify:
+    src: dest/js/mini-barrages.js
+    dest: dest/js/mini-barrages.min.js
+
+  watch:
+    files:
+      - src/js-mini-barrages/**/*.js
+    tasks:
+      - task/js/mini/barrages

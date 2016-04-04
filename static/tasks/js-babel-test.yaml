@@ -1,0 +1,14 @@
+---
+  babel:
+    options:
+      sourceMap: true
+      presets:
+        - babel-preset-es2015
+    files:
+      dest/js/babel-test.js: src/js-babel-test/app.js
+
+  watch:
+    files:
+      - src/js-babel-test/**/*.js
+    tasks:
+      - task/js/babel/test

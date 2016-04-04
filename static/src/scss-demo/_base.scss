@@ -1,0 +1,21 @@
+//
+//  Base
+//  --------------------------------------------------
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: $body-width;
+    background-color: $white;
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: 1.75;
+    @include font-smoothing(antialiased);
+
+    &[role="mobile"] {
+        min-width: 0;
+        background-color: #ff6161;
+    }
+}

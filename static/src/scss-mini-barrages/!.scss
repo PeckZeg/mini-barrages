@@ -1,0 +1,17 @@
+//
+//  Mini Barrages Scss Files
+//  --------------------------------------------------
+
+@import "../../assets/scss/variables/color";
+@import "../../assets/scss/variables/device";
+@import "../../assets/scss/variables/screen";
+@import "../../assets/scss/variables/transition";
+@import "../../assets/scss/variables/typography";
+
+@import "../../assets/scss/mixins/box";
+@import "../../assets/scss/mixins/transition";
+@import "../../assets/scss/mixins/typography";
+
+@import "../../assets/scss/funcs/map-fetch";
+
+@import "elements/mini-barrages";

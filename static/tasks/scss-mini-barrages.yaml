@@ -1,0 +1,40 @@
+---
+  compass:
+    options:
+      sassDir: src/scss-mini-barrages
+      specify: src/scss-mini-barrages/!.scss
+      cssDir: dest/css/mini-barrages
+      noLineComments: true
+
+  rename:
+    files:
+      - src: dest/css/mini-barrages/!.css
+        dest: dest/css/mini-barrages.css
+
+  autoprefixer:
+    options:
+      browsers:
+        - last 5 versions
+        - ie 7
+        - ie 8
+        - ie 9
+      map: true
+    src: "<%= rename['scss-mini-barrages'].files[0].dest %>"
+    dest: "<%= rename['scss-mini-barrages'].files[0].dest %>"
+
+  cssmin:
+    options:
+      shorthandCompacting: false
+      roundingPrecision: -1
+    files:
+      - src: "<%= rename['scss-mini-barrages'].files[0].dest %>"
+        dest: dest/css/mini-barrages.min.css
+
+  clean:
+    src: "<%= compass['scss-mini-barrages'].options.cssDir %>"
+
+  watch:
+    files:
+      - src/scss-mini-barrages/**/*.scss
+    tasks:
+      - task/scss/mini/barrages

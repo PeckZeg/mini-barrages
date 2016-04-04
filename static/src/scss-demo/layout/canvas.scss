@@ -1,0 +1,19 @@
+//
+//  Layout - Canvas
+//  --------------------------------------------------
+
+$width: 600px;
+$height: 400px;
+
+#barrages-canvas {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: $height / -2;
+    margin-left: $width / -2;
+
+    > .canvas {
+        @include size(600px, 400px);
+        background-color: $gray-light;
+    }
+}

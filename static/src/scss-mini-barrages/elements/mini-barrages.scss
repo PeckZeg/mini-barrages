@@ -1,0 +1,26 @@
+//
+//  Elements - Mini Barrages
+//  --------------------------------------------------
+
+@mixin text-stroke($stroke-width, $color) {
+    // -webkit-text-stroke: $stroke-width $color;
+    text-shadow: (-$stroke-width) (-$stroke-width) 0 $color,
+                 ( $stroke-width) (-$stroke-width) 0 $color,
+                 (-$stroke-width) ( $stroke-width) 0 $color,
+                 ( $stroke-width) ( $stroke-width) 0 $color;
+}
+
+.mini-barrages-canvas {
+    overflow: hidden;
+    position: relative;
+
+    .mini-barrage {
+        position: absolute;
+        font-size: $font-size-h1;
+        // -webkit-text-stroke: 1px black;
+        color: $white;
+        @include font-smoothing(antialiased);
+        @include text-stroke(1px, rgba($black, 0.66));
+        white-space: nowrap;
+    }
+}

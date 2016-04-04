@@ -1,0 +1,40 @@
+---
+  compass:
+    options:
+      sassDir: src/scss-demo
+      specify: src/scss-demo/!.scss
+      cssDir: dest/css/demo
+      noLineComments: true
+
+  rename:
+    files:
+      - src: dest/css/demo/!.css
+        dest: dest/css/demo.css
+
+  autoprefixer:
+    options:
+      browsers:
+        - last 5 versions
+        - ie 7
+        - ie 8
+        - ie 9
+      map: true
+    src: "<%= rename['scss-demo'].files[0].dest %>"
+    dest: "<%= rename['scss-demo'].files[0].dest %>"
+
+  cssmin:
+    options:
+      shorthandCompacting: false
+      roundingPrecision: -1
+    files:
+      - src: "<%= rename['scss-demo'].files[0].dest %>"
+        dest: dest/css/demo.min.css
+
+  clean:
+    src: "<%= compass['scss-demo'].options.cssDir %>"
+
+  watch:
+    files:
+      - src/scss-demo/**/*.scss
+    tasks:
+      - task/scss/demo

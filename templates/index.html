@@ -1,0 +1,44 @@
+{% extends '!.html' %}
+
+{% block css %}
+  {{ macro.css('%s/demo.css'|format(folder.css)) }}
+  {{ macro.css('%s/mini-barrages.css'|format(folder.css)) }}
+{% endblock %}
+
+{% block script %}
+  {{ macro.script('%s/jquery/2.2.2/jquery.min.js'|format(folder.plugins)) }}
+  {{ macro.script('%s/lodash.js/4.7.0/lodash.min.js'|format(folder.plugins)) }}
+  {{ macro.script('%s/moment.js/2.12.0/moment.min.js'|format(folder.plugins)) }}
+  {{ macro.script('%s/mini-barrages.js'|format(folder.script)) }}
+  <script>
+    $(function() {
+      var duration = +moment.duration('00:00:05'),
+          barrages = [
+           '=͟͟͞͞(๑•̀=͟͟͞͞(๑•̀д•́=͟͟͞͞(๑•̀д•́๑)=͟͟͞͞(๑•̀д•́ ٩',
+           '(￣ε(#￣) Σ',
+           '(￣(エ)￣)ゞ',
+           '(｡•ˇ‸ˇ•｡)',
+           'ヽ(^o^)ρ┳┻┳°σ(^o^)/',
+          ];
+
+      $('#barrages-canvas > .canvas').miniBarrages({
+        autoplay: true,
+        duration: duration,
+        barrages: _.map(barrages, function(text) {
+          return {
+            playTime: moment.duration(_.random(0, duration), 'ms').toJSON(),
+            text: text
+          };
+        })
+      });
+    });
+  </script>
+{% endblock %}
+
+{% block body %}
+  <div id="barrages-canvas">
+    <div class="canvas">
+      {# <p class="mini-barrage">测试弹幕</p> #}
+    </div>
+  </div>
+{% endblock %}

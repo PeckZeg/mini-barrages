@@ -1,0 +1,23 @@
+//
+//  Variables: Wado Logo
+//  --------------------------------------------------
+
+$folder-wado-logo:              '//static.wado.cn/wado-logo';
+
+$wado-logo-circular: (
+    original:                   '#{$folder-wado-logo}/wado-logo-circular.png',
+    256s:                       '#{$folder-wado-logo}/wado-logo-circular-256s.png',
+    128s:                       '#{$folder-wado-logo}/wado-logo-circular-128s.png',
+    64s:                        '#{$folder-wado-logo}/wado-logo-circular-64s.png',
+    32s:                        '#{$folder-wado-logo}/wado-logo-circular-32s.png',
+    16s:                        '#{$folder-wado-logo}/wado-logo-circular-16s.png',
+);
+
+$wado-logo-right-angle: (
+    original:                   '#{$folder-wado-logo}/wado-logo-right-angle.png',
+    256s:                       '#{$folder-wado-logo}/wado-logo-right-angle-256s.png',
+    128s:                       '#{$folder-wado-logo}/wado-logo-right-angle-128s.png',
+    64s:                        '#{$folder-wado-logo}/wado-logo-right-angle-64s.png',
+    32s:                        '#{$folder-wado-logo}/wado-logo-right-angle-32s.png',
+    16s:                        '#{$folder-wado-logo}/wado-logo-right-angle-16s.png',
+);
