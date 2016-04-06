@@ -1,4 +1,4 @@
-;(function($, _, moment) {
+;(function(moduleFunc) {if (typeof define === 'function' && define.amd) {define('jquery.fn.miniBarrages', ['jquery','lodash','moment'], moduleFunc);}else {moduleFunc(jQuery, _, moment);}})(function($, _, moment) {
 function Barrage(timeline, playTime, text) {
     this.timeline = timeline;
     this.playTime = moment.duration(playTime);
@@ -41,7 +41,7 @@ function Timeline(el, duration, barrages, opts) {
     this.duration = +duration ? +duration : +moment.duration('00:01:00');
 
     //  自动播放
-    this.autoplay = _.get(opts, 'autoplay', true);
+    this.autoplay = _.get(opts, 'autoplay', false);
 
     //  循环次数
     this.loop = _.get(opts, 'loop', 0);
@@ -56,7 +56,8 @@ function Timeline(el, duration, barrages, opts) {
     }).value();
 
     //  渲染时间间隔
-    this.timeInterval = 200;
+    this.timeInterval = parseInt(_.get(opts, 'timeInterval'));
+    this.timeInterval = isNaN(this.timeInterval) ? 200 : this.timeInterval;
 
     if (this.autoplay) this.play();
 
@@ -111,27 +112,16 @@ Timeline.prototype.render = function(begin, end) {
 //     var $el = $(this),
 //         pos = $el.position()
 // }
-function extendJQueryFn($) {
-    $.fn.miniBarrages = function(opts) {
-        var duration = _.get(opts, 'duration'),
-            barrages = _.get(opts, 'barrages');
+$.fn.miniBarrages = function(opts) {
+    var duration = _.get(opts, 'duration'),
+        barrages = _.get(opts, 'barrages');
 
-        this.each(function() {
-            var $el = $(this).addClass('mini-barrages-canvas');
+    this.each(function() {
+        var $el = $(this).addClass('mini-barrages-canvas');
 
-            $el.data('mini-barrages', new Timeline(this, duration, barrages, opts));
-        });
+        $el.data('mini-barrages', new Timeline(this, duration, barrages, opts));
+    });
 
-        // var timeline = new Timeline();
-    };
+    // var timeline = new Timeline();
 };
-
-
-if (typeof define === 'function' && define.amd) {
-    define('jquery.fn.miniBarrages', ['jquery'], extendJQueryFn);
-}
-
-else {
-    extendJQueryFn($);
-}
-})(jQuery, _, moment);
+});

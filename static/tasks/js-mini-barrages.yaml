@@ -1,22 +1,22 @@
 ---
   concat:
     options:
-      banner: ";(function($, _, moment) {\n"
-      footer: "\n})(jQuery, _, moment);"
+      banner: ";(function(moduleFunc) {if (typeof define === 'function' && define.amd) {define('jquery.fn.miniBarrages', ['jquery','lodash','moment'], moduleFunc);}else {moduleFunc(jQuery, _, moment);}})(function($, _, moment) {\n"
+      footer: "\n});"
     src:
       - src/js-mini-barrages/class/**/*.js
       - src/js-mini-barrages/component/**/*.js
       - src/js-mini-barrages/element/**/*.js
       - src/js-mini-barrages/util/**/*.js
       - src/js-mini-barrages/app.js
-    dest: dest/js/mini-barrages-es6.js
+    dest: dest/js/es2015-mini-barrages.js
 
   babel:
     options:
       presets:
         - babel-preset-es2015
     files:
-      dest/js/mini-barrages.js: dest/js/mini-barrages-es6.js
+      dest/js/mini-barrages.js: "<%= concat['js-mini-barrages'].dest %>"
 
   uglify:
     src: dest/js/mini-barrages.js
